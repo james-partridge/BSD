@@ -1,0 +1,60 @@
+import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+from sympy import EllipticCurve, symbols, expand, divisors
+
+def dimension_of_divisor_space(E, d):
+    """
+    Compute the dimension of the space of divisors of degree d on the elliptic curve E.
+    This is a simplified approximation and may not be accurate for all cases.
+    """
+    if d <= 0:
+        return 0
+    return max(d, 1)  # This is a simplification based on Riemann-Roch for elliptic curves
+
+def order_of_vanishing(E):
+    """
+    Compute an approximation of the order of vanishing of the L-function at s=1.
+    This is a placeholder and should be replaced with a proper computation.
+    """
+    # This is just a placeholder. In reality, this would involve computing the L-function
+    # and determining its order of vanishing at s=1, which is a complex task.
+    return 1  # Placeholder value
+
+def plot_f_minus_d_minus_1(E, d_max):
+    d_values = range(1, d_max + 1)
+    f_minus_d_minus_1 = [dimension_of_divisor_space(E, d) - (d - 1) for d in d_values]
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(d_values, f_minus_d_minus_1, 'bo-')
+    plt.axhline(y=order_of_vanishing(E), color='r', linestyle='--', label='Order of vanishing')
+    plt.xlabel('d (degree of divisor)')
+    plt.ylabel('f(d) - (d - 1)')
+    plt.title('Behavior of f(d) - (d - 1) for Elliptic Curve')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+# Define an elliptic curve
+a, b = symbols('a b')
+E = EllipticCurve(sp.QQ, [a, b])
+
+# Plot the behavior of f(d) - (d - 1)
+plot_f_minus_d_minus_1(E, 100)
+
+# Investigate small degree behavior
+for d in range(1, 6):
+    dim = dimension_of_divisor_space(E, d)
+    print(f"For d = {d}: f({d}) = {dim}, f({d}) - ({d} - 1) = {dim - (d - 1)}")
+
+# Compute the rank (this is a placeholder and should be replaced with actual rank computation)
+rank = 1  # Placeholder value
+
+# Check if f(d) = d - 1 + rank(E(Q)) for large d
+d_large = 1000
+dim_large = dimension_of_divisor_space(E, d_large)
+expected_dim = d_large - 1 + rank
+print(f"\nFor large d = {d_large}:")
+print(f"Computed f(d) = {dim_large}")
+print(f"Expected f(d) = d - 1 + rank(E(Q)) = {expected_dim}")
+print(f"Difference: {dim_large - expected_dim}")
