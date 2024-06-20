@@ -1,0 +1,14 @@
+Conjecture:
+Let E be an elliptic curve defined over Q, and let E(C) be its extension to the complex numbers. For each positive integer d, let f(d) be the dimension of the space of divisors of degree d on E(C).
+
+(Asymptotic behavior) The limit of (f(d) - (d - 1)) as d tends to infinity exists and is equal to the order of vanishing of the L-function of E at s=1.
+(Small degree behavior) For small values of d (say, d ≤ 5), the value of f(d) - (d - 1) is related to arithmetic properties of E, such as the structure of its torsion subgroup or the existence of complex multiplication.
+(Birch and Swinnerton-Dyer conjecture) The following are equivalent:
+a) The Birch and Swinnerton-Dyer conjecture holds for E.
+b) For all sufficiently large d, we have f(d) = d - 1 + rank(E(Q)), where rank(E(Q)) is the rank of the Mordell-Weil group of E.
+
+
+This conjecture posits a  connection between the behavior of the dimensions of spaces of divisors (both for large and small degrees) and the arithmetic of the elliptic curve, especially as it pertains to the BSD conjecture.
+The first part of the conjecture suggests that the "extra" dimensions of the spaces of divisors (beyond the Brill-Noether bound) stabilize as the degree grows large, and that this stable value is a key arithmetic quantity (the order of vanishing of the L-function).
+The second part suggests that for small degrees, the dimensions of the spaces of divisors are sensitive to specific arithmetic properties of the curve, reflecting the idea that these dimensions encode local information about the curve.
+The third part ties this all together with the BSD conjecture, suggesting that BSD is equivalent to a specific relationship between the dimensions of spaces of divisors and the rank of the Mordell-Weil group.
